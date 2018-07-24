@@ -1,0 +1,82 @@
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+
+unset imap_passive
+set imap_check_subscribed
+set imap_idle = yes
+set imap_keepalive = 120
+set mail_check = 60
+
+set status_chars  = " *%A"
+set status_format = "──────[     ][  Folder: %-10f ][%r%m messages%?n? (%n new)? ]%|─"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set date_format = "%m/%d"
+
+set pager_index_lines = 8
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+
+unset markers
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set editor = "vim"
+
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: date: subject:
+
+color normal default default
+
+alternative_order text/plain text/enriched text/html
+
+# macros
+macro index,pager           gx      <pipe-message>urlview<Enter>
+macro attach,compose        gx      <pipe-entry>urlview<Enter>
+
+# ~*~ key bindings ~*~
+# unbind keys
+bind generic                z       noop # next-page
+bind generic                Z       noop # previous-page
+bind generic                *       noop # last-entry
+bind generic                =       noop # first-entry
+bind generic                >       noop # next-line
+bind generic                <       noop # previous-line
+bind generic                [       noop # half-up
+bind generic                ]       noop # half-down
+bind index,pager,attach     g       noop
+bind index,pager            s       noop
+bind pager                  i       noop # exit
+
+# bind keys
+bind generic,index,pager    \Cf     next-page
+bind generic,index,pager    \Cb     previous-page
+bind generic,index,pager    \Cu     half-up
+bind generic,index,pager    \Cd     half-down
+bind generic,pager          \Cy     previous-line
+bind generic,pager          \Ce     next-line
+bind generic,index          gg      first-entry
+bind generic,index          G       last-entry
+bind pager                  gg      top
+bind pager                  G       bottom
+bind generic,index          j       next-entry
+bind generic,index          k       previous-entry
+bind pager                  j       next-line
+bind pager                  k       previous-line
+bind index,pager            /       search
+bind index,pager            ?       search-reverse
+bind index,pager            n       search-next
+bind index,pager            N       search-opposite
+
+bind index,pager            a       group-reply
+bind index,pager            s       sync-mailbox
+bind index,pager            z       imap-fetch-mail
+
+bind pager                  <down>  next-line
+bind pager                  <up>    previous-line
+bind pager                  <space> exit
+
+bind editor                 <up>    history-up
+bind editor                 <down>  history-down

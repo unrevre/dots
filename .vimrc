@@ -49,6 +49,8 @@ let g:tex_flavor = "latex"
 nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')
         \ ?'<Bar>diffupdate':''<CR><CR><C-l>
 
+nnoremap <silent> @R :set operatorfunc=util#repeat<CR>g@
+
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
 nnoremap ]l :lnext<CR>
@@ -56,6 +58,7 @@ nnoremap [l :lprev<CR>
 nnoremap ]t :tabn<CR>
 nnoremap [t :tabp<CR>
 
+nnoremap <silent> gb :<C-u>call util#break()<CR>
 nnoremap <silent> gw :let _s=@/ <Bar> :%s/\s\+$//e <Bar>
         \ :let @/=_s <Bar> :nohl <Bar> :unlet _s<CR>
 
@@ -71,6 +74,7 @@ nnoremap <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 inoremap <C-u> <C-g>u<C-u>
 
 xnoremap . :normal .<CR>
+xnoremap @ :<C-u>call util#repeat()<CR>
 
 cnoremap <C-a> <Home>
 " }
@@ -81,6 +85,12 @@ command! -nargs=1 Count execute printf('%%s/%s//gn', escape(<q-args>, '/'))
 " }
 
 " autocommands {
+augroup guess
+    autocmd!
+    autocmd StdinReadPost,FilterReadPost,FileReadPost,BufReadPost
+            \ * call start#guess()
+augroup END
+
 augroup quickfix
     autocmd!
     autocmd BufWinEnter quickfix nnoremap <silent> <buffer>

@@ -1,0 +1,144 @@
+# /eval /exec -oc sed -E 's/^ *//;/^(\/script|\/eval)/d;/^\//!d' ${env:HOME}/.config/weechat/wcrc
+
+/key bind ctrl-B /window page_up
+/key bind ctrl-F /window page_down
+/key bind ctrl-J /buffer +1
+/key bind ctrl-K /buffer -1
+/key unbind ctrl-N
+/key unbind ctrl-P
+
+/set buflist.format.buffer "${format_number}${indent}${eval:${format_name}}${format_hotlist} ${color:red}${buffer.local_variables.filter}${buffer.local_variables.buflist}"
+/set buflist.format.buffer_current ${if:${type}==server?${color:*white,yellow}:${color:*white,brown}}${hide: ^,${buffer[last_gui_buffer].number}} ${indent}${if:${type}==server&&${info:irc_server_isupport_value,${name},NETWORK}?${info:irc_server_isupport_value,${name},NETWORK}:${name}} ${color:*red}${buffer.local_variables.filter}${buffer.local_variables.buflist}
+/set buflist.format.hotlist " ${color:red}${hotlist}${color:red}"
+/set buflist.format.hotlist_highlight "${color:*red}"
+/set buflist.format.hotlist_message "${color:*blue}"
+/set buflist.format.hotlist_private "${color:*green}"
+/set buflist.format.indent "  ${color:*white}"
+/set buflist.format.lag "${color:red}[${lag}]"
+/set buflist.format.name "${if:${type}==server?${color:white}:${color_hotlist}}${if:${type}==server||${type}==channel||${type}==private?${if:${cutscr:8,+,${name}}!=${name}?${cutscr:8,${color:${weechat.color.chat_prefix_more}}+,${if:${type}==server&&${info:irc_server_isupport_value,${name},NETWORK}?${info:irc_server_isupport_value,${name},NETWORK}:${name}}}:${cutscr:8, ,${if:${type}==server&&${info:irc_server_isupport_value,${name},NETWORK}?${info:irc_server_isupport_value,${name},NETWORK}                              :${name}                              }}}:${name}}"
+/set buflist.format.number "${if:${type}==server?${color:lightmagenta,lightred}:${color:lightblue}}${number}${if:${number_displayed}?' :  }"
+
+/set exec.color.flag_finished red
+/set exec.color.flag_running green
+
+/set fset.color.file_changed red
+/set fset.color.help_quotes default
+/set fset.color.index_selected cyan
+/set fset.color.line_selected_bg1 darkgray
+/set fset.color.marked red
+/set fset.color.marked_selected red
+/set fset.color.name_changed yellow
+/set fset.color.option_changed yellow
+/set fset.color.parent_value_selected cyan
+/set fset.color.quotes default
+/set fset.color.section yellow
+/set fset.color.section_changed red
+/set fset.color.section_changed_selected red
+/set fset.color.section_selected yellow
+/set fset.color.title_count_options *white
+/set fset.color.title_current_option *lightcyan
+/set fset.color.title_filter *white
+/set fset.color.title_marked_options red
+/set fset.color.type_selected green
+/set fset.color.value_changed yellow
+/set fset.color.value_selected cyan
+/set fset.color.value_undef_selected magenta
+
+/set irc.color.input_nick lightmagenta
+/set irc.color.item_lag_counting brown
+/set irc.color.item_nick_modes green
+/set irc.color.nick_prefixes "y:white;q:white;a:white;o:green;h:yellow;v:red;*lightmagenta"
+/set irc.look.server_buffer independent
+/set irc.server_default.nicks biran
+
+/set logger.color.backlog_end lightmagenta
+/set logger.color.backlog_line lightblue
+
+/set relay.color.status_active green
+/set relay.color.status_auth_failed red
+/set relay.color.status_disconnected red
+/set relay.color.status_waiting_auth yellow
+/set relay.irc.backlog_time_format "[%H'%M] "
+
+/set script.color.status_autoloaded green
+/set script.color.status_held yellow
+/set script.color.status_installed cyan
+/set script.color.status_obsolete red
+/set script.color.status_popular default
+/set script.color.status_running blue
+/set script.color.status_unknown lightblue
+/set script.color.text_bg_selected lightred
+
+/set trigger.color.flag_command green
+/set trigger.color.flag_post_action blue
+/set trigger.color.flag_regex red
+/set trigger.color.regex red
+/set trigger.color.replace yellow
+
+/set weechat.bar.buflist.size 18
+/set weechat.bar.buflist.size_max 18
+/set weechat.bar.input.size 0
+/set weechat.bar.input.size_max 3
+/set weechat.bar.nicklist.position left
+/set weechat.bar.nicklist.size 15
+/set weechat.bar.status.color_bg green
+/set weechat.bar.status.color_delim lightmagenta
+/set weechat.bar.title.color_bg cyan
+
+/set weechat.color.chat_nick_colors "red,yellow,brown,green,cyan,blue,magenta,lightmagenta"
+/set weechat.color.chat_prefix_join green
+/set weechat.color.chat_time_delimiters lightmagenta
+/set weechat.color.input_actions green
+/set weechat.color.status_data_msg *blue
+/set weechat.color.status_more *lightmagenta
+/set weechat.color.status_number *red
+
+/set weechat.look.align_end_of_lines message
+/set weechat.look.bar_more_down " - "
+/set weechat.look.bar_more_left " [ "
+/set weechat.look.bar_more_right " ] "
+/set weechat.look.bar_more_up " ^ "
+/set weechat.look.buffer_time_format " %H'%M"
+/set weechat.look.color_inactive_message on
+/set weechat.look.color_inactive_prefix on
+/set weechat.look.color_inactive_prefix_buffer on
+/set weechat.look.color_inactive_window off
+/set weechat.look.day_change_message_1date " - %a, %d %b %Y -"
+/set weechat.look.day_change_message_2dates " - %%a, %%d %%b %%Y [%a, %d %b %Y] -"
+/set weechat.look.item_buffer_filter "*"
+/set weechat.look.prefix_align_min 8
+/set weechat.look.prefix_align_max 8
+/set weechat.look.prefix_join " + "
+/set weechat.look.prefix_quit " × "
+/set weechat.look.prefix_same_nick ↳
+/set weechat.look.prefix_suffix " "
+/set weechat.look.quote_nick_prefix "⎡"
+/set weechat.look.quote_nick_suffix "⎦"
+/set weechat.look.read_marker_string "─"
+/set weechat.look.separator_horizontal " "
+
+/set xfer.color.status_aborted red
+/set xfer.color.status_active cyan
+/set xfer.color.status_done green
+/set xfer.color.status_failed red
+/set xfer.color.status_waiting yellow
+
+/server add bitlbee localhost/6667 -autoconnect
+
+/trigger add join modifier "weechat_print" "${tg_tags} =~ irc_join|irc_nick_back" ";\(\x1927([a-zA-Z0-9^~@:./_-]+)[^a-z]+\);${color:lightblue}(${color:green}${re:1}${color:lightblue}); ;([#&!]\S+);${color:0}${re:1};" ""
+/trigger add part modifier "weechat_print" "${tg_tags} =~ irc_part" ";\(\x1927([a-zA-Z0-9^~@:./_-]+)[^a-z]+\);${color:lightblue}(${color:red}${re:1}${color:lightblue}); ;\(\x19...([^@]+)\x19..\);${color:lightblue}(${color:12}${re:1}${color:lightblue}); ;([#&]\S+);${color:238}${re:1}; ;([#&]\S+$);${color:0}${re:1};" ""
+/trigger add quit modifier "weechat_print" "${tg_tags} =~ irc_quit" ";\(\x1927([a-zA-Z0-9^~@:./_-]+)[^a-z]+\);${color:lightblue}(${color:red}${re:1}${color:lightblue}); ;\(\x19...([^@]+)\x19..\);${color:lightblue}(${color:red}${re:1}${color:lightblue});" ""
+/trigger add mode modifier "weechat_print" "${tg_tags} =~ irc_mode" ";Mode;${color:blue}Mode; ; by ; ${color:blue}by ; ;(\+\S+);${color:blue}${re:1}; ;\[\x1c(-\S+);[${color:blue}${re:1};" ""
+/trigger add nick modifier "weechat_print" "${tg_tags} =~ irc_nick" ";is now known as;${color:blue}is now known as;" ""
+/trigger add disconnect modifier "weechat_print" "${tg_tags} !~ . && ${tg_buffer} !~ irc.server." "; irc: disconnected from server;\t$${color:blue}irc: disconnected from server$;" ""
+
+/autoset add exec.exec.weather short_name weather
+/trigger add weather command weather
+/trigger set weather regex "/\s/_/tg_argv_eol1"
+/trigger set weather command "/exec -noflush -norc -noln -buffer weather curl -s http://wttr.in/${tg_argv_eol1}?m?n"
+/trigger add weather_title print ""
+/trigger set weather_title conditions "${buffer.full_name} == exec.exec.weather"
+/trigger set weather_title command "/buffer set title 'Weather forecast'"
+/trigger add weather_shortcut modifier input_text_for_buffer
+/trigger set weather_shortcut conditions "${buffer[tg_modifier_data].full_name} == exec.exec.weather && ${tg_string_nocolor} !~ ^/"
+/trigger set weather_shortcut regex "==(.*)==/weather ${re:1}"

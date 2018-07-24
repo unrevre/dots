@@ -1,0 +1,65 @@
+/*
+Set location of the 'init' script which is run upon startup. Defaults to
+$HOME/.kwm
+
+    kwm_home /path/to/.kwm
+
+Set location of include directory. 'include filename' to include other
+configuration files. Defaults to $HOME/.kwm
+
+    kwm_include /path/to/.kwm/include
+
+Set directory where bsp layouts are loaded from / saved to. Defaults to
+$HOME/.kwm/layouts
+
+    kwm_layouts /path/to/.kwm/layouts
+
+'exec' wraps 'execvp'.
+e.g.: exec bash
+*/
+
+# Default values for screen padding
+kwmc config padding 24 24 16 16
+
+# Default values for container gaps
+kwmc config gap 16 16
+
+# Default tiling mode (bsp | monocle | float)
+kwmc config tiling bsp
+
+# Automatically float windows that fail to resize
+kwmc config float-non-resizable on
+
+# Automatically resize window to container size
+kwmc config lock-to-container on
+
+# Set focus-follows-mouse-mode to autoraise
+kwmc config focus-follows-mouse on
+
+# Temporarily disable focus-follows-mouse when a floating window has focus
+kwmc config standby-on-float on
+
+# Center window when made floating
+kwmc config center-on-float on
+
+# Automatically move mouse cursor to center of focused window
+kwmc config mouse-follows-focus on
+
+# Allow window focus to wrap
+kwmc config cycle-focus on
+
+# Default container split ratio
+kwmc config split-ratio 0.5
+
+# Handedness of new splits
+kwmc config spawn right
+
+# Application-specific properties
+kwmc rule owner="Xcode" properties={float="true"}
+kwmc rule owner="Preferences" properties={float="true"}
+
+# Border for marked frame
+kwmc config border marked on
+kwmc config border marked size 2
+kwmc config border marked color 0xfff8b36d
+kwmc config border marked radius 6

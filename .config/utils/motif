@@ -1,0 +1,232 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+notifications for mail (imap) with pync
+daemonised to run as background process
+"""
+
+import atexit
+import email
+import getpass
+import imaplib
+import os
+import sys
+import time
+
+from signal import SIGTERM
+
+import pync
+
+SETTINGS = {
+    'pidfile': '/tmp/motif.pid',
+    'logfile': '/tmp/score.log',
+    'server': '',
+    'username': '',
+    }
+
+class MotifError(Exception):
+    """ general motif error """
+
+    pass
+
+
+class Motif:
+    """ motif - brief, recurring mail notifications """
+
+    def __init__(self):
+        self.client = None
+        self.noted = []
+
+    def login(self):
+        """ prompt for account and login information """
+
+        server = SETTINGS['server']
+        username = SETTINGS['username']
+        if not server:
+            server = input('Server: ')
+        if not username:
+            username = input('User: ')
+        password = getpass.getpass()
+
+        self.connect(server, username, password)
+
+    def connect(self, server, username, password):
+        """ connect and authenticate to mailbox """
+
+        self.client = imaplib.IMAP4_SSL(server)
+
+        try:
+            self.client.login(username, password)
+        except Exception as err:
+            print('login failed: ', err)
+            quit()
+
+    def refresh(self):
+        """ refresh mailbox and check for unnotified mail """
+
+        self.client.select('INBOX')
+
+        status, msgids = self.client.search(None, 'UNSEEN')
+        if status != 'OK':
+            raise MotifError
+
+        if not msgids[0]:
+            return
+
+        for msgid in msgids[0].decode().split(" "):
+            if msgid not in self.noted:
+                self.push(msgid)
+                self.noted.append(msgid)
+
+    def push(self, msgid):
+        """ push notifications (sender, title) with pync """
+
+        status, data = self.client.fetch(
+            msgid, 'BODY.PEEK[HEADER.FIELDS (FROM SUBJECT)]')
+        if status != 'OK':
+            raise MotifError('push')
+
+        message = email.message_from_bytes(data[0][1])
+        pync.notify(message, title='Motif')
+
+
+class Daemon:
+    """ generic daemon """
+
+    def __init__(self, pidfile):
+        self.pidfile = pidfile
+
+    def daemonise(self):
+        """ standard double-fork """
+
+        try:
+            pid = os.fork()
+            if pid > 0:
+                # exit first parent
+                sys.exit(0)
+        except OSError as err:
+            sys.stderr.write('fork #1 failed: {}\n'.format(err))
+            sys.exit(1)
+
+        # decouple from parent environment
+        os.chdir('/')
+        os.setsid()
+        os.umask(0)
+
+        # do second fork
+        try:
+            pid = os.fork()
+            if pid > 0:
+                # exit from second parent
+                sys.exit(0)
+        except OSError as err:
+            sys.stderr.write('fork #2 failed: {}\n'.format(err))
+            sys.exit(1)
+
+        # redirect standard file descriptors
+        sys.stdout.flush()
+        sys.stderr.flush()
+        log = os.open(SETTINGS['logfile'], os.O_RDWR | os.O_CREAT)
+        os.dup2(log, sys.stdout.fileno())
+        os.dup2(log, sys.stderr.fileno())
+
+        # write pidfile
+        atexit.register(self.delete)
+        pid = str(os.getpid())
+        open(self.pidfile, 'w+').write('{}\n'.format(pid))
+
+    def delete(self):
+        """ delete pidfile """
+
+        os.remove(self.pidfile)
+
+    def start(self):
+        """ start daemon """
+
+        # check if the daemon is already running
+        try:
+            fpid = open(self.pidfile, 'r')
+            pid = int(fpid.read().strip())
+            fpid.close()
+        except IOError:
+            pid = None
+
+        if pid:
+            sys.stderr.write('motif already present!\n')
+            sys.exit(1)
+
+        # login to account
+        self.motif.login()
+
+        # start the daemon
+        self.daemonise()
+        self.run()
+
+    def stop(self):
+        """ stop daemon """
+
+        # get pid from the pidfile
+        try:
+            fpid = open(self.pidfile, 'r')
+            pid = int(fpid.read().strip())
+            fpid.close()
+        except IOError:
+            pid = None
+
+        if not pid:
+            sys.stderr.write('motif not present\n')
+            return
+
+        try:
+            while 1:
+                os.kill(pid, SIGTERM)
+                time.sleep(0.5)
+        except OSError as err:
+            if str(err).find("No such process") != -1:
+                if os.path.exists(self.pidfile):
+                    os.remove(self.pidfile)
+            else:
+                print(err)
+                sys.exit(1)
+
+    def run(self):
+        """ virtual """
+
+
+class MotifDaemon(Daemon):
+    """ daemon class for motif """
+
+    def __init__(self, pidfile):
+        super().__init__(pidfile)
+
+        self.motif = Motif()
+
+    def run(self):
+        """ worker """
+
+        while True:
+            try:
+                self.motif.refresh()
+                time.sleep(32)
+            except MotifError:
+                pync.notify('# refresh error #', title='Motif')
+
+
+def main():
+    """ main """
+
+    daemon = MotifDaemon(SETTINGS['pidfile'])
+    if len(sys.argv) == 1:
+        daemon.start()
+    elif len(sys.argv) == 2 and sys.argv[1] == 'stop':
+        daemon.stop()
+    else:
+        print('usage: {} [stop]'.format(sys.argv[0]))
+        sys.exit(2)
+
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+
+    main()

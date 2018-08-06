@@ -84,6 +84,23 @@ inoremap <C-u> <C-g>u<C-u>
 xnoremap . :normal .<CR>
 xnoremap @ :<C-u>call util#repeat()<CR>
 
+vnoremap <silent> *
+        \ :<C-u>
+        \ let old_reg=getreg('"')<Bar>
+        \ let old_regtype=getregtype('"')<CR>
+        \ gvy/<C-r><C-r>=substitute(
+        \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+        \ gV
+        \ :call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> #
+        \ :<C-u>
+        \ let old_reg=getreg('"')<Bar>
+        \ let old_regtype=getregtype('"')<CR>
+        \ gvy?<C-r><C-r>=substitute(
+        \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+        \ gV
+        \ :call setreg('"', old_reg, old_regtype)<CR>
+
 cnoremap <C-a> <Home>
 " }
 

@@ -47,10 +47,6 @@ alt - x : kwmc tree -pseudo destroy
 alt - b : kwmc window -c type bsp
 alt - n : kwmc window -c type monocle
 
-# restore layouts
-ctrl + cmd + alt - 1 : kwmc tree restore screen1
-ctrl + cmd + alt - 2 : kwmc tree restore screen2
-
 # resize frames
 ctrl + cmd + alt - k : kwmc window -c expand 0.05 north
 ctrl + cmd + alt - j : kwmc window -c expand 0.05 south

@@ -18,6 +18,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 PS1="\[\033[38;5;4m\]┌─[\u@\h] \[\033[38;5;2m\]\W\[\033[38;5;3m\]\$(get_git_branch)\n\
 \[\033[38;5;4m\]└─╼ $\[\033[0m\]\$(get_virtualenv) "
 
+alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias dots='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 HISTCONTROL=ignoredups

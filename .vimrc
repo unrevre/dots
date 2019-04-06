@@ -76,6 +76,7 @@ nnoremap <silent> gw :let _s=@/ <Bar> :%s/\s\+$//e <Bar>
 nnoremap Q @q
 nnoremap Y y$
 
+nnoremap <leader>e :e <C-r>=expand("%:p:h").'/'<CR>
 nnoremap <leader>q :quit<CR>
 nnoremap <leader>u :update<CR>
 nnoremap <leader>w <C-w>

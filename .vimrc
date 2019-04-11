@@ -154,7 +154,7 @@ augroup END
 
 augroup status
     autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * call status#refresh()
+    autocmd VimEnter,WinEnter,BufEnter * call status#refresh()
 augroup END
 " }}}
 

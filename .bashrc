@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
 export ARCHFLAGS="-arch x86_64"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 

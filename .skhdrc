@@ -8,8 +8,11 @@ alt - j: yabai -m window --focus south
 alt - k: yabai -m window --focus north
 alt - l: yabai -m window --focus east
 
-alt - 0x2F: yabai -m window --focus next
-alt - 0x2B: yabai -m window --focus prev
+alt - 0x2F: yabai -m window --focus above
+alt - 0x2B: yabai -m window --focus below
+
+shift + alt - 0x2F: yabai -m window --focus next
+shift + alt - 0x2B: yabai -m window --focus prev
 
 # swap window
 cmd + alt - h: yabai -m window --swap west
@@ -46,6 +49,8 @@ alt - b: yabai -m space --layout bsp
 alt - v: yabai -m space --layout float
 
 # set insertion point in focused window
+alt - n: yabai -m window --insert above
+
 alt - a: yabai -m window --insert west
 alt - s: yabai -m window --insert south
 alt - w: yabai -m window --insert north

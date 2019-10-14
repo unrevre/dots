@@ -1,4 +1,4 @@
-# /eval /exec -oc sed -E 's/^ *//;/^(\/script|\/eval)/d;/^\//!d' ${env:HOME}/.config/weechat/wcrc
+# /eval /exec -oc sed -E 's/^ *//;/^(\/script|\/eval)/d;/^\//!d' ${env:HOME}/.config/setup/weechat
 
 /key bind ctrl-B /window page_up
 /key bind ctrl-F /window page_down

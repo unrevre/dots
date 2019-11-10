@@ -110,10 +110,10 @@ vnoremap <silent> #
 " commands {{{
 command! -nargs=1 Count execute printf('%%s/%s//gn', escape(<q-args>, '/'))
         \ | normal! ``
-command! -bang -nargs=* -complete=file Make
-        \ :silent call async#run(<bang>0, &makeprg, <f-args>)
-command! -nargs=0 -complete=file MakeStop
-        \ :silent call async#stop()
+command! -nargs=* -complete=file Make
+        \ :silent call async#run(&makeprg, <f-args>)
+command! -nargs=0 -complete=file Stop
+        \ :silent call async#stop(<f-args>)
 " }}}
 
 " autocommands {{{
@@ -125,7 +125,7 @@ augroup END
 
 augroup lint
     autocmd!
-    autocmd BufWritePost *.S,*.c,*.cpp,*.py Make!
+    autocmd BufWritePost *.S,*.c,*.cpp,*.py Make
 augroup END
 
 augroup git

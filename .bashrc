@@ -9,6 +9,7 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export ARCHFLAGS="-arch x86_64"
+export SDKROOT="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 export LESS_TERMCAP_md=$'\e[01;34m'

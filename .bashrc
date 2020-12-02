@@ -34,6 +34,10 @@ bind '"\C-b"':shell-backward-word
 bind '"\C-d"':shell-kill-word
 
 completions=(
+    /usr/local/etc/bash_completion.d/brew
+    /usr/local/etc/bash_completion.d/brew-services
+    /usr/local/etc/bash_completion.d/git-completion.bash
+    /usr/local/etc/bash_completion.d/git-prompt.sh
 )
 
 for f in "${completions[@]}"; do [[ -r "$f" ]] && . "$f"; done

@@ -110,6 +110,7 @@ cnoremap <C-a> <Home>
 " }}}
 
 " commands {{{
+command! -nargs=0 Lint :silent call util#togglelint()
 command! -nargs=1 Count execute printf('%%s/%s//gn', escape(<q-args>, '/'))
         \ | normal! ``
 command! -nargs=* -complete=file Make

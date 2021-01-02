@@ -62,6 +62,20 @@ ctrl + alt - j: yabai -m window --warp south
 ctrl + alt - k: yabai -m window --warp north
 ctrl + alt - l: yabai -m window --warp east
 
+# absorb window into stack
+shift + ctrl + alt - h: yabai -m window --insert above; \
+                        yabai -m window --focus west; \
+                        yabai -m window --warp east
+shift + ctrl + alt - j: yabai -m window --insert above; \
+                        yabai -m window --focus south; \
+                        yabai -m window --warp north
+shift + ctrl + alt - k: yabai -m window --insert above; \
+                        yabai -m window --focus north; \
+                        yabai -m window --warp south
+shift + ctrl + alt - l: yabai -m window --insert above; \
+                        yabai -m window --focus east; \
+                        yabai -m window --warp west
+
 # focus space
 ctrl - 0x2F: yabai -m space --focus next
 ctrl - 0x2B: yabai -m space --focus prev
@@ -83,6 +97,18 @@ shift + ctrl - 0x2B: yabai -m window --space prev; yabai -m space --focus prev
 
 shift + ctrl - 0x2C: yabai -m window --space recent; \
                      yabai -m space --focus recent
+
+# send window to display and follow focus
+shift + fn - 1: yabai -m window --display 1; yabai -m display --focus 1
+shift + fn - 2: yabai -m window --display 2; yabai -m display --focus 2
+
+shift + fn - 0x2F: yabai -m window --display next; \
+                   yabai -m display --focus next
+shift + fn - 0x2B: yabai -m window --display prev; \
+                   yabai -m display --focus prev
+
+shift + fn - 0x2C: yabai -m window --display recent; \
+                   yabai -m display --focus recent
 
 # increase window size
 ctrl + cmd + alt - h: yabai -m window --resize left:-84:0

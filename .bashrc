@@ -24,6 +24,8 @@ PS1="\[\033[38;5;4m\]┌─[\u@\h] \[\033[38;5;2m\]\W\[\033[38;5;3m\]\$(get_git_
 
 alias brew='env PATH=${PATH//$(pyenv root)\/shims:/} brew'
 alias dots='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 
 HISTCONTROL=ignoredups
 

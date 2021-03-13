@@ -71,6 +71,8 @@ nnoremap ]t :tabn<CR>
 nnoremap [t :tabp<CR>
 
 nnoremap <silent> gb :<C-u>call util#break()<CR>
+nnoremap gp p`[
+nnoremap gP P`[
 nnoremap Q @q
 nnoremap Y y$
 

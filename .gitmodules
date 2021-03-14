@@ -1,0 +1,33 @@
+[submodule ".vim/bundle/vader.vim"]
+	path = .vim/bundle/vader.vim
+	url = git@github.com:junegunn/vader.vim.git
+[submodule ".vim/bundle/vim-bufkill"]
+	path = .vim/bundle/vim-bufkill
+	url = git@github.com:qpkorr/vim-bufkill.git
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule ".vim/bundle/vim-easy-align"]
+	path = .vim/bundle/vim-easy-align
+	url = git@github.com:junegunn/vim-easy-align.git
+[submodule ".vim/bundle/vim-flame"]
+	path = .vim/bundle/vim-flame
+	url = git@github.com:unrevre/vim-flame.git
+[submodule ".vim/bundle/vim-peekaboo"]
+	path = .vim/bundle/vim-peekaboo
+	url = git@github.com:junegunn/vim-peekaboo.git
+[submodule ".vim/bundle/vim-qf"]
+	path = .vim/bundle/vim-qf
+	url = git@github.com:romainl/vim-qf.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule ".vim/bundle/vim-tradewinds"]
+	path = .vim/bundle/vim-tradewinds
+	url = git@github.com:andymass/vim-tradewinds.git
+[submodule ".vim/bundle/vim-usnip"]
+	path = .vim/bundle/vim-usnip
+	url = git@github.com:unrevre/vim-usnip.git
+[submodule ".vim/bundle/vimagit"]
+	path = .vim/bundle/vimagit
+	url = git@github.com:jreybert/vimagit.git

@@ -1,5 +1,7 @@
 execute pathogen#infect()
 
+" vader.vim
+" vim-bufkill
 " vim-commentary
 " vim-easyalign
 " vim-flame

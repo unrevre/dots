@@ -1,3 +1,6 @@
+[submodule ".vim/bundle/targets.vim"]
+	path = .vim/bundle/targets.vim
+	url = git@github.com:wellle/targets.vim.git
 [submodule ".vim/bundle/vader.vim"]
 	path = .vim/bundle/vader.vim
 	url = git@github.com:junegunn/vader.vim.git
@@ -10,15 +13,24 @@
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = git@github.com:junegunn/vim-easy-align.git
+[submodule ".vim/bundle/vim-exchange"]
+	path = .vim/bundle/vim-exchange
+	url = git@github.com:tommcdo/vim-exchange.git
 [submodule ".vim/bundle/vim-flame"]
 	path = .vim/bundle/vim-flame
 	url = git@github.com:unrevre/vim-flame.git
+[submodule ".vim/bundle/vim-matchup"]
+	path = .vim/bundle/vim-matchup
+	url = git@github.com:andymass/vim-matchup.git
 [submodule ".vim/bundle/vim-peekaboo"]
 	path = .vim/bundle/vim-peekaboo
 	url = git@github.com:junegunn/vim-peekaboo.git
 [submodule ".vim/bundle/vim-qf"]
 	path = .vim/bundle/vim-qf
 	url = git@github.com:romainl/vim-qf.git
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git@github.com:tpope/vim-surround.git

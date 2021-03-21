@@ -1,12 +1,16 @@
 execute pathogen#infect()
 
+" targets.vim
 " vader.vim
 " vim-bufkill
 " vim-commentary
 " vim-easyalign
+" vim-exchange
 " vim-flame
+" vim-matchup
 " vim-peekaboo
 " vim-qf
+" vim-repeat
 " vim-surround
 " vim-tradewinds
 " vim-usnip
@@ -52,7 +56,7 @@ set tabpagemax=16
 
 set wildmenu
 
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 let mapleader = ' '
 let maplocalleader = ' '
@@ -235,6 +239,10 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " }}}
 
+" exchange {{{
+vmap x <Plug>(Exchange)
+" }}}
+
 " flame {{{
 nmap gl <Plug>(FlameLine)
 " }}}
@@ -253,6 +261,18 @@ let g:magit_jump_prev_hunk = 'N'
 let g:magit_git_cmd = 'git'
 " }}}
 
+" matchup {{{
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
+let g:matchup_motion_cursor_end = 0
+let g:matchup_motion_override_Npercent = 0
+
+nnoremap <leader>n :<C-u>MatchupWhereAmI??<CR>
+
+highlight! MatchParen ctermfg=13 ctermbg=224 cterm=italic
+highlight! MatchWord ctermfg=13 ctermbg=224 cterm=italic
+highlight! Pmenu ctermfg=13 ctermbg=224 cterm=italic
+" }}}
+
 " peekaboo {{{
 let g:peekaboo_window = 'vert bo 40new'
 " }}}
@@ -262,5 +282,9 @@ nmap ]c <Plug>(qf_qf_next)
 nmap [c <Plug>(qf_qf_previous)
 nmap ]l <Plug>(qf_loc_next)
 nmap [l <Plug>(qf_loc_previous)
+" }}}
+
+" targets {{{
+let g:targets_nl = 'nN'
 " }}}
 " }}}

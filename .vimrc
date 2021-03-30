@@ -11,6 +11,7 @@ execute pathogen#infect()
 " vim-peekaboo
 " vim-qf
 " vim-repeat
+" vim-slime
 " vim-surround
 " vim-tradewinds
 " vim-usnip
@@ -282,6 +283,14 @@ nmap ]c <Plug>(qf_qf_next)
 nmap [c <Plug>(qf_qf_previous)
 nmap ]l <Plug>(qf_loc_next)
 nmap [l <Plug>(qf_loc_previous)
+" }}}
+
+" slime {{{
+let g:slime_target = "kitty"
+let g:slime_no_mappings = 1
+
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeParagraphSend
 " }}}
 
 " targets {{{

@@ -246,6 +246,7 @@ vmap x <Plug>(Exchange)
 
 " flame {{{
 nmap gl <Plug>(FlameLine)
+nmap gL <Plug>(FlameToggle)
 " }}}
 
 " magit {{{

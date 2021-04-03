@@ -66,8 +66,6 @@ let g:tex_flavor = "latex"
 " }}}
 
 " key bindings {{{
-nnoremap <silent> <C-g> :let _s=@/ <Bar> :%s/\s\+$//e <Bar>
-        \ :let @/=_s <Bar> :nohl <Bar> :unlet _s<CR>
 nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')?' <Bar>
         \ diffupdate':''<CR><CR><C-l>
 nnoremap <silent> @R :set operatorfunc=util#repeat<CR>g@
@@ -77,9 +75,12 @@ nnoremap [b :bprev<CR>
 nnoremap ]t :tabn<CR>
 nnoremap [t :tabp<CR>
 
-nnoremap <silent> gb :<C-u>call util#break()<CR>
+nnoremap gb :<C-u>call util#break()<CR>
 nnoremap gp p`[
 nnoremap gP P`[
+nnoremap gw :let _s=@/ <Bar> :%s/\s\+$//e <Bar>
+        \ :let @/=_s <Bar> :nohl <Bar> :unlet _s<CR>
+
 nnoremap Q @q
 nnoremap Y y$
 
@@ -243,8 +244,8 @@ vmap x <Plug>(Exchange)
 " }}}
 
 " flame {{{
-nmap gs <Plug>(FlameToggle)
 nmap gl <Plug>(FlameLine)
+nmap gL <Plug>(FlameToggle)
 " }}}
 
 " magit {{{

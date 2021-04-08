@@ -2,6 +2,7 @@ execute pathogen#infect()
 
 " targets.vim
 " vader.vim
+" vim-after-object
 " vim-bufkill
 " vim-commentary
 " vim-easyalign
@@ -235,6 +236,11 @@ highlight! LineNr ctermfg=12 ctermbg=8
 " }}}
 
 " plugin settings {{{
+" after-object {{{
+autocmd VimEnter * call after_object#enable(['[', ']'],
+        \ '!', '#', '%', '*', '-', '=', ':', ';', ',', '?', '/')
+" }}}
+
 " easyalign {{{
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)

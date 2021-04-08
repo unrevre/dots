@@ -4,6 +4,9 @@
 [submodule ".vim/bundle/vader.vim"]
 	path = .vim/bundle/vader.vim
 	url = git@github.com:junegunn/vader.vim.git
+[submodule ".vim/bundle/vim-after-object"]
+	path = .vim/bundle/vim-after-object
+	url = git@github.com:junegunn/vim-after-object.git
 [submodule ".vim/bundle/vim-bufkill"]
 	path = .vim/bundle/vim-bufkill
 	url = git@github.com:qpkorr/vim-bufkill.git

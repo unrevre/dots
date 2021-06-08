@@ -119,6 +119,7 @@ vnoremap <silent> #
 " }}}
 
 " commands {{{
+command! -bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1 | nohl
 command! -nargs=0 Lint :silent call util#togglelint()
 command! -nargs=1 Count execute printf('%%s/%s//gn', escape(<q-args>, '/'))
         \ | normal! ``

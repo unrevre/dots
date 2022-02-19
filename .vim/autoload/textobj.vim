@@ -1,5 +1,5 @@
 function! textobj#select(begin, end) abort
-    if (a:begin != a:end) && (a:end != [0, 0])
+    if (a:end != [0, 0])
         call cursor(a:begin)
         normal v
         call cursor(a:end)

@@ -67,6 +67,8 @@ let g:tex_flavor = "latex"
 " }}}
 
 " key bindings {{{
+nnoremap <silent> <C-j> :move +1<CR>
+nnoremap <silent> <C-k> :move -2<CR>
 nnoremap <silent> <C-l> :nohlsearch<C-r>=has('diff')
         \ ?'<Bar>diffupdate':''<CR><CR><C-l>
 
@@ -95,6 +97,9 @@ nnoremap <leader>. :let @/=@"<CR>/<CR>cgn<C-r>.<Esc>
 nnoremap <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 inoremap <C-u> <C-g>u<C-u>
+
+xnoremap <silent> <C-j> :move '>+1<CR>gv
+xnoremap <silent> <C-k> :move -2<CR>gv
 
 xnoremap . :normal .<CR>
 xnoremap @ :<C-u>call util#repeat()<CR>

@@ -19,6 +19,12 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 export LESS_TERMCAP_ue=$'\e[0m'
 
+export HOMEBREW_MIRROR_URL="https://mirrors.tuna.tsinghua.edu.cn"
+export HOMEBREW_API_DOMAIN="$HOMEBREW_MIRROR_URL/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="$HOMEBREW_MIRROR_URL/homebrew-bottles"
+export HOMEBREW_BREW_GIT_REMOTE="$HOMEBREW_MIRROR_URL/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="$HOMEBREW_MIRROR_URL/git/homebrew/homebrew-core.git"
+
 PS1="\[\033[38;5;4m\]┌─[\u@\h] \[\033[38;5;2m\]\W\[\033[38;5;3m\]\$(get_git_branch)\n\
 \[\033[38;5;4m\]└─╼ $\[\033[0m\]\$(get_virtualenv) "
 

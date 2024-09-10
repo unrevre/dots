@@ -1,0 +1,50 @@
+# settings
+startup_message off
+
+altscreen on
+defbce on
+defflow off
+defscrollback 1024
+escape ``
+hardcopydir $HOME/.screen
+windowlist string "%4n %h%=%f"
+
+backtick 0 30 30 $HOME/.config/screen/stat-mem
+backtick 1 30 30 $HOME/.config/screen/stat-cpu
+
+# status bar
+caption always
+caption string '%{= wk}[%= %{wk}%?%-w%?%{wk}%?%F%{rk}%?%?%P%{gk}%?%?%E%{yk}%? %n*%t %{wk}%?%+w%?%{= wk} %=]'
+hardstatus alwayslastline
+hardstatus string '%{= wk}[%0`/%1`][%= %h (%S) %=]%{= wk}[%m/%d %C%A]'
+
+# display settings
+term xterm-256color
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# key bindings
+bind K kill
+bind Q quit
+bind R eval "source $HOME/.screenrc"
+
+bind h focus left
+bind j focus up
+bind k focus down
+bind l focus right
+bind q only
+bind t title
+bind v split -v
+bind w windowlist -b
+bind x split
+
+bind , prev
+bind . next
+
+# scrollback buffer (pgup, pgdown)
+bindkey "^[[5~" eval "copy" "stuff ^b^e"
+bindkey "^[[6~" eval "copy" "stuff ^f^y"
+
+# start screen index at 1
+screen 1
+bind c screen 1
+bind 0

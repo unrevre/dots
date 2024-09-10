@@ -1,0 +1,58 @@
+[user]
+	name = unrevre
+	email = unrevre@gmail.com
+[core]
+	editor = vim
+[pretty]
+	custom = format:"%C(yellow)%h %C(green)[%as] %C(reset)%s %C(blue)[%an]%C(red)%d"
+	table = format:"%h | %as | %>(20,trunc)%d | %s"
+[alias]
+	br = branch
+	ca = commit --amend
+	cf = commit --amend --no-edit
+	cm = commit
+	co = checkout
+	cp = cherry-pick
+	dc = diff --cached
+	dw = diff -w --word-diff=color --ignore-space-at-eol
+	gl = grep --line-number
+	lg = log --graph
+	ln = log --pretty=custom --decorate --numstat
+	ls = log --pretty=custom --decorate
+	lt = log -1 HEAD
+	ma = merge --abort
+	mc = merge --continue
+	me = merge
+	ra = rebase --abort
+	rc = rebase --continue
+	re = rebase
+	ri = rebase -i
+	rk = rm --cached
+	rs = remote set-url
+	rv = remote -v
+	sl = stash list
+	sp = stash pop
+	ss = "!f() { git stash show -p stash@{${1}}; }; f"
+	st = status
+	su = status --untracked=no
+	sz = "!f() { git status; }; f"
+	to = "!f() { git log ${1}..HEAD; }; f"
+	us = reset HEAD --
+
+	fix = "!f() { git log --oneline --decorate | fzf | awk '{ print $1 }' | xargs -o -I{} git ri {}^; }; f"
+	mod = "!f() { git diff --name-status ${1}^ ${1}; }; f"
+	new = ls-files --others --exclude-standard
+	red = rebase --committer-date-is-author-date
+	sup = submodule update --init --recursive
+	web = "!f() { open `git remote get-url origin | sed -E -e 's$:$/$' -e 's$(git@|git://)$https://$'` | head -n1; }; f"
+
+	purge = "!f() { git reflog expire --expire=now --expire-unreachable=now --all; git gc --prune=now; git prune; }; f"
+	export = "!f() { printf 'git config --global alias.%s %q\n' $1 \"$(git config --get alias.$1)\"; }; f"
+
+	c = "!f() { _git_dir=$(git rev-parse --git-dir) && \
+		[ -d \"${_git_dir}/rebase-merge\" ] && git rebase --continue && return; \
+		[ -d \"${_git_dir}/rebase-apply\" ] && git rebase --continue && return; \
+		[ -f \"${_git_dir}/MERGE_HEAD\" ] && git merge --continue && return; \
+		[ -f \"${_git_dir}/CHERRY_PICK_HEAD\" ] && git cherry-pick --continue && return; \
+		[ -f \"${_git_dir}/REVERT_HEAD\" ] && git revert --continue && return; \
+		echo \" [!] nothing to continue.\"; }; f"

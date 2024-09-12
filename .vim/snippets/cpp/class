@@ -1,0 +1,14 @@
+class {{+_class+}} {
+  public:
+    {{+~\~1+}}() { }
+
+    {{+~\~1+}}({{+~\~1+}} const&) = delete;
+    {{+~\~1+}} operator=({{+~\~1+}} const&) = delete;
+    {{+~\~1+}}({{+~\~1+}}&&) = delete;
+    {{+~\~1+}}& operator=({{+~\~1+}}&&) = delete;
+
+    ~{{+~\~1+}}() = default;
+
+  private:
+    {{++}}
+};

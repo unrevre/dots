@@ -1,0 +1,4 @@
+augroup {{++}}
+  autocmd!
+  autocmd {{++}}
+augroup END

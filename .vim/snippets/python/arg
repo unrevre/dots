@@ -1,0 +1,5 @@
+parser.add_argument(
+    "--{{++}}",
+    type={{++}},
+    help="{{++}}",
+)

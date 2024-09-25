@@ -118,7 +118,8 @@ hat() {
     printf -- '%s\n' "${MAPFILE[@]:count}"
 }
 
-bind -x '"\C-x\C-d":"fzd;"'
+# shellcheck disable=SC2016
+bind '"\C-x\C-d": " \C-u \C-a\C-k`fzd`\e\C-e\C-y\C-a\C-y\ey\C-h\C-e\er\C-h"'
 
 _get_git_branch() {
     local branch

@@ -6,6 +6,10 @@ syntax reset
 let g:colors_name = "colours"
 
 " Customise highlights
+highlight! DiffAdd      ctermfg=0   ctermbg=2
+highlight! DiffChange   ctermfg=0   ctermbg=3
+highlight! DiffDelete   ctermfg=0   ctermbg=1
+highlight! DiffText     ctermfg=0   ctermbg=11  cterm=none
 highlight! Error        ctermfg=0   ctermbg=7
 highlight! Folded       ctermfg=7   ctermbg=9
 highlight! LineNr       ctermfg=12  ctermbg=8

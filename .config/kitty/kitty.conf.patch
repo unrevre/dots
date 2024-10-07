@@ -8,419 +8,330 @@
 > bold_font        auto
 > italic_font      auto
 > bold_italic_font auto
-27c27
+23c23
 < # font_size 11.0
 ---
 > font_size 11.0
-253c253
+243c243
 < # cursor #cccccc
 ---
 > cursor #515151
-263c263
+255c255
 < # cursor_text_color #111111
 ---
 > cursor_text_color background
-270c270
+264c264
 < # cursor_shape block
 ---
 > cursor_shape block
-289c289
-< # cursor_blink_interval -1
----
-> cursor_blink_interval -1
-295c295
+305c305
 < # cursor_stop_blinking_after 15.0
 ---
 > cursor_stop_blinking_after 8.0
-304c304
+314c314
 < # scrollback_lines 2000
 ---
-> scrollback_lines 2000
-315c315
-< # scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
----
-> scrollback_pager less --chop-long-lines --RAW-CONTROL-CHARS +INPUT_LINE_NUMBER
-327c327
+> scrollback_lines 2048
+345c345
 < # scrollback_pager_history_size 0
 ---
 > scrollback_pager_history_size 32
-340c340
-< # scrollback_fill_enlarged_window no
----
-> scrollback_fill_enlarged_window no
-345c345
+363c363
 < # wheel_scroll_multiplier 5.0
 ---
 > wheel_scroll_multiplier 4.0
-353c353
-< # wheel_scroll_min_lines 1
----
-> wheel_scroll_min_lines 1
-362c362
-< # touch_scroll_multiplier 1.0
----
-> touch_scroll_multiplier 1.0
-373c373
+391c391
 < # mouse_hide_wait 3.0
 ---
 > mouse_hide_wait 0
-382,383c382,383
+400,401c400,401
 < # url_color #0087bd
 < # url_style curly
 ---
 > url_color #99cc99
 > url_style single
-388c388
-< # open_url_with default
----
-> open_url_with default
-396c396
+414c414
 < # url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp ssh
 ---
 > url_prefixes file git http https kitty mailto
-401c401
-< # detect_urls yes
----
-> detect_urls yes
-435c435
+453c453
 < # copy_on_select no
 ---
-> copy_on_select a1
-452c452
+> copy_on_select clipboard
+470c470
 < # paste_actions quote-urls-at-prompt,confirm
 ---
 > paste_actions quote-urls-at-prompt,confirm,confirm-if-large
-476c476
+496c496
 < # strip_trailing_spaces never
 ---
 > strip_trailing_spaces smart
-482c482
+502c502
 < # select_by_word_characters @-./_~?&=%+#
 ---
 > select_by_word_characters -_
-488c488
+508c508
 < # select_by_word_characters_forward
 ---
 > select_by_word_characters_forward @./~?&=%+#
-498c498
-< # click_interval -1.0
----
-> click_interval -1.0
-504c504
+524c524
 < # focus_follows_mouse no
 ---
 > focus_follows_mouse yes
-510c510
-< # pointer_shape_when_grabbed arrow
----
-> pointer_shape_when_grabbed arrow
-515c515
-< # default_pointer_shape beam
----
-> default_pointer_shape beam
-519c519
-< # pointer_shape_when_dragging beam
----
-> pointer_shape_when_dragging beam
-685c685
+705c705
 < # repaint_delay 10
 ---
 > repaint_delay 50
-695c695
-< # input_delay 3
----
-> input_delay 3
-703c703
-< # sync_to_monitor yes
----
-> sync_to_monitor yes
-716c716
-< # enable_audio_bell yes
----
-> enable_audio_bell yes
-721c721
-< # visual_bell_duration 0.0
----
-> visual_bell_duration 0.0
-726c726
-< # visual_bell_color none
----
-> visual_bell_color none
-732c732
+762c762
 < # window_alert_on_bell yes
 ---
-> window_alert_on_bell yes
-737c737
+> window_alert_on_bell no
+767c767
 < # bell_on_tab "🔔 "
 ---
-> bell_on_tab ""
-748c748
-< # command_on_bell none
----
-> command_on_bell none
-754c754
-< # bell_path none
----
-> bell_path none
-784c784
+> bell_on_tab "[@] "
+825c825
 < # enabled_layouts *
 ---
 > enabled_layouts stack
-830c830
+871c871
 < # window_padding_width 0
 ---
 > window_padding_width 4
-873c873
+916c916
 < # hide_window_decorations no
 ---
 > hide_window_decorations yes
-1117,1118c1117,1118
+1176,1177c1176,1177
 < # foreground #dddddd
 < # background #000000
 ---
 > foreground #515151
 > background #f2f0ec
-1122c1122
-< # background_opacity 1.0
----
-> background_opacity 1.0
-1158c1158
-< # background_image none
----
-> background_image none
-1174c1174
-< # dynamic_background_opacity no
----
-> dynamic_background_opacity no
-1201,1202c1201,1202
+1281,1282c1281,1282
 < # selection_foreground #000000
 < # selection_background #fffacd
 ---
 > selection_foreground #d3d0c8
 > selection_background #515151
-1218,1219c1218,1219
+1298,1299c1298,1299
 < # color0 #000000
 < # color8 #767676
 ---
 > color0  #f2f0ec
 > color8  #e8e6df
-1223,1224c1223,1224
+1303,1304c1303,1304
 < # color1 #cc0403
 < # color9 #f2201f
 ---
 > color1  #f2777a
 > color9  #d3d0c8
-1228,1229c1228,1229
+1308,1309c1308,1309
 < # color2  #19cb00
 < # color10 #23fd00
 ---
 > color2  #99cc99
 > color10 #cdea40
-1233,1234c1233,1234
+1313,1314c1313,1314
 < # color3  #cecb00
 < # color11 #fffd00
 ---
 > color3  #ffcc66
 > color11 #f99157
-1238,1239c1238,1239
+1318,1319c1318,1319
 < # color4  #0d73cc
 < # color12 #1a8fff
 ---
 > color4  #6699cc
 > color12 #a09f93
-1243,1244c1243,1244
+1323,1324c1323,1324
 < # color5  #cb1ed1
 < # color13 #fd28ff
 ---
 > color5  #9999cc
 > color13 #747369
-1248,1249c1248,1249
+1328,1329c1328,1329
 < # color6  #0dcdcd
 < # color14 #14ffff
 ---
 > color6  #90b4d8
 > color14 #515151
-1253,1254c1253,1254
+1333,1334c1333,1334
 < # color7  #dddddd
 < # color15 #ffffff
 ---
 > color7  #2d2d2d
 > color15 #393939
-1258c1258
+1338c1338
 < # mark1_foreground black
 ---
 > mark1_foreground #515151
-1262c1262
+1342c1342
 < # mark1_background #98d3cb
 ---
 > mark1_background #ffcc66
-1264c1264
+1344c1344
 < #: Color for marks of type 1 (light steel blue)
 ---
 > #: Color for marks of type 1
-1266c1266
+1346c1346
 < # mark2_foreground black
 ---
 > mark2_foreground #515151
-1270c1270
+1350c1350
 < # mark2_background #f2dcd3
 ---
 > mark2_background #6699cc
-1272c1272
+1352c1352
 < #: Color for marks of type 1 (beige)
 ---
 > #: Color for marks of type 2
-1274c1274
+1354c1354
 < # mark3_foreground black
 ---
 > mark3_foreground #515151
-1278c1278
+1358c1358
 < # mark3_background #f274bc
 ---
 > mark3_background #99cc99
-1280c1280
+1360c1360
 < #: Color for marks of type 3 (violet)
 ---
 > #: Color for marks of type 3
-1442c1442
+1549c1549
 < # update_check_interval 24
 ---
 > update_check_interval 0
-1501c1501
+1609c1609
 < # shell_integration enabled
 ---
 > shell_integration no-cursor
-1604c1604
+1774c1774
 < # macos_option_as_alt no
 ---
 > macos_option_as_alt both
-1625c1625
+1795c1795
 < # macos_quit_when_last_window_closed no
 ---
 > macos_quit_when_last_window_closed yes
-1764c1764
+1901c1901
 < # kitty_mod ctrl+shift
 ---
 > kitty_mod super
-1770c1770
+1907c1907
 < # clear_all_shortcuts no
 ---
 > clear_all_shortcuts yes
-1775c1775
+1912c1912
 < # action_alias
 ---
 > action_alias launch_window launch --type=window --cwd=current
-1792c1792
+1929c1929
 < # kitten_alias
 ---
-> kitten_alias hints hints --alphabet=fjdkslaghrueiwoqptyvmbncxz1234567890 --hints-offset=0 --hints-text-color=yellow
-1807,1808c1807
+> kitten_alias hints hints --alphabet=fjdkslaeiwoqprutyghvmbn --hints-offset=0 --hints-text-color=yellow
+1944,1945c1944
 < # map kitty_mod+c copy_to_clipboard
 < # map cmd+c       copy_to_clipboard
 ---
 > map kitty_mod+c copy_to_clipboard
-1818,1819c1817
+1955,1956c1954
 < # map kitty_mod+v paste_from_clipboard
 < # map cmd+v       paste_from_clipboard
 ---
 > map kitty_mod+v paste_from_clipboard
-1823,1824c1821
+1960,1961c1958
 < # map kitty_mod+s  paste_from_selection
 < # map shift+insert paste_from_selection
 ---
 > map kitty_mod+shift+v paste_from_selection
-1842a1840,1843
-> #: Paste from kitty buffer
-> 
-> map kitty_mod+b paste_from_buffer a1
-> 
-1849,1852c1850
+1986,1989c1983
 < # map kitty_mod+up    scroll_line_up
 < # map kitty_mod+k     scroll_line_up
 < # map opt+cmd+page_up scroll_line_up
 < # map cmd+up          scroll_line_up
 ---
 > map kitty_mod+k scroll_line_up
-1856,1859c1854
+1993,1996c1987
 < # map kitty_mod+down    scroll_line_down
 < # map kitty_mod+j       scroll_line_down
 < # map opt+cmd+page_down scroll_line_down
 < # map cmd+down          scroll_line_down
 ---
 > map kitty_mod+j scroll_line_down
-1863,1864c1858
+2000,2001c1991
 < # map kitty_mod+page_up scroll_page_up
 < # map cmd+page_up       scroll_page_up
 ---
 > map kitty_mod+shift+k scroll_page_up
-1868,1869c1862
+2005,2006c1995
 < # map kitty_mod+page_down scroll_page_down
 < # map cmd+page_down       scroll_page_down
 ---
 > map kitty_mod+shift+j scroll_page_down
-1873,1874c1866
+2010,2011c1999
 < # map kitty_mod+home scroll_home
 < # map cmd+home       scroll_home
 ---
 > map kitty_mod+shift+h scroll_home
-1878,1879c1870
+2015,2016c2003
 < # map kitty_mod+end scroll_end
 < # map cmd+end       scroll_end
 ---
 > map kitty_mod+shift+l scroll_end
-1883c1874
+2020c2007
 < # map kitty_mod+z scroll_to_prompt -1
 ---
 > map kitty_mod+[ scroll_to_prompt -1
-1892c1883
+2029c2016
 < # map kitty_mod+x scroll_to_prompt 1
 ---
 > map kitty_mod+] scroll_to_prompt 1
-1896c1887,1888
+2033c2020,2021
 < # map kitty_mod+h show_scrollback
 ---
 > map kitty_mod+p show_scrollback
 > map kitty_mod+shift+p launch_window --stdin-source=@screen_scrollback vim -
-1910c1902,1905
+2047c2035,2038
 < # map kitty_mod+g show_last_command_output
 ---
 > map kitty_mod+o show_last_command_output
 > map kitty_mod+shift+o launch_window --stdin-source=@last_cmd_output vim -
 > map kitty_mod+i show_last_visited_command_output
 > map kitty_mod+shift+i launch_window --stdin-source=@last_visited_cmd_output vim -
-1972,1973c1967,1968
+2109,2110c2100,2101
 < # map kitty_mod+n new_os_window
 < # map cmd+n       new_os_window
 ---
 > map kitty_mod+n new_os_window
 > map kitty_mod+shift+n new_os_window_with_cwd
-1981,1982c1976
+2118,2119c2109
 < # map kitty_mod+w close_window
 < # map shift+cmd+d close_window
 ---
 > map kitty_mod+w close_window
-1986c1980
+2123c2113
 < # map kitty_mod+] next_window
 ---
 > map kitty_mod+k next_window
-1990c1984
+2127c2117
 < # map kitty_mod+[ previous_window
 ---
 > map kitty_mod+j previous_window
-1994c1988
+2131c2121
 < # map kitty_mod+f move_window_forward
 ---
 > map kitty_mod+shift+k move_window_forward
-1998c1992
+2135c2125
 < # map kitty_mod+b move_window_backward
 ---
 > map kitty_mod+shift+j move_window_backward
-2006,2007c2000
+2143,2144c2133
 < # map kitty_mod+r start_resizing_window
 < # map cmd+r       start_resizing_window
 ---
 > map kitty_mod+r start_resizing_window
-2164,2169c2157
+2304,2309c2293
 < # map kitty_mod+equal  change_font_size all +2.0
 < # map kitty_mod+plus   change_font_size all +2.0
 < # map kitty_mod+kp_add change_font_size all +2.0
@@ -429,72 +340,77 @@
 < # map shift+cmd+equal  change_font_size all +2.0
 ---
 > map kitty_mod+equal change_font_size current +2.0
-2173,2176c2161
+2313,2316c2297
 < # map kitty_mod+minus       change_font_size all -2.0
 < # map kitty_mod+kp_subtract change_font_size all -2.0
 < # map cmd+minus             change_font_size all -2.0
 < # map shift+cmd+minus       change_font_size all -2.0
 ---
 > map kitty_mod+minus change_font_size current -2.0
-2180,2181c2165
+2320,2321c2301
 < # map kitty_mod+backspace change_font_size all 0
 < # map cmd+0               change_font_size all 0
 ---
 > map kitty_mod+backspace change_font_size current 0
-2202c2186
+2342c2322
 < # map kitty_mod+e open_url_with_hints
 ---
 > map kitty_mod+e>u open_url_with_hints
-2209c2193,2194
+2349c2329,2330
 < # map kitty_mod+p>f kitten hints --type path --program -
 ---
 > map kitty_mod+e>f kitten hints --type path --program -
 > map kitty_mod+e>p kitten hints --type path --multiple --program -
-2217c2202,2203
+2357c2338,2339
 < # map kitty_mod+p>shift+f kitten hints --type path
 ---
 > map kitty_mod+e>o kitten hints --type path
 > map kitty_mod+e>v kitten hints --type path --program "launch_window vim"
-2223c2209
+2363c2345
 < # map kitty_mod+p>l kitten hints --type line --program -
 ---
 > map kitty_mod+e>l kitten hints --type line --program -
-2230c2216
+2370c2352
 < # map kitty_mod+p>w kitten hints --type word --program -
 ---
 > map kitty_mod+e>w kitten hints --type word --program -
-2236c2222
+2376c2358
 < # map kitty_mod+p>h kitten hints --type hash --program -
 ---
 > map kitty_mod+e>h kitten hints --type hash --program -
-2244c2230
+2384c2366
 < # map kitty_mod+p>n kitten hints --type linenum
 ---
 > map kitty_mod+e>n kitten hints --type linenum
-2251c2237
+2391c2373
 < # map kitty_mod+p>y kitten hints --type hyperlink
 ---
 > map kitty_mod+e>y kitten hints --type hyperlink
-2283,2284c2269
+2423,2424c2405
 < # map kitty_mod+u    kitten unicode_input
 < # map ctrl+cmd+space kitten unicode_input
 ---
 > map kitty_mod+u kitten unicode_input
-2288,2289c2273
+2428,2429c2409
 < # map kitty_mod+f2 edit_config_file
 < # map cmd+,        edit_config_file
 ---
 > map kitty_mod+, edit_config_file
-2293c2277
+2433c2413
 < # map kitty_mod+escape kitty_shell window
 ---
 > map kitty_mod+escape kitty_shell window
-2374,2375c2358
+2456,2457c2436
+< # map kitty_mod+delete clear_terminal reset active
+< # map opt+cmd+r        clear_terminal reset active
+---
+> map f1 clear_terminal reset active
+2521,2522c2500
 < # map kitty_mod+f5 load_config_file
 < # map ctrl+cmd+,   load_config_file
 ---
 > map kitty_mod+shift+r load_config_file
-2391,2392c2374
+2538,2539c2516
 < # map kitty_mod+f6 debug_config
 < # map opt+cmd+,    debug_config
 ---

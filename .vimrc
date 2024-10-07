@@ -239,6 +239,10 @@ highlight! User6 ctermfg=7 ctermbg=8
 highlight! User7 ctermfg=7 ctermbg=9
 
 highlight! LineNr ctermfg=12 ctermbg=8
+highlight! DiffAdd ctermbg=194
+highlight! DiffDelete ctermbg=224
+highlight! DiffChange ctermbg=230
+highlight! DiffText ctermbg=223 cterm=NONE
 " }}}
 
 " plugin settings {{{

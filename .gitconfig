@@ -56,3 +56,7 @@
 		[ -f \"${_git_dir}/CHERRY_PICK_HEAD\" ] && git cherry-pick --continue && return; \
 		[ -f \"${_git_dir}/REVERT_HEAD\" ] && git revert --continue && return; \
 		echo \" [!] nothing to continue.\"; }; f"
+[merge]
+	tool = vim
+[mergetool "vim"]
+	cmd = vim -f -d -c \"4wincmd w | wincmd J\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"

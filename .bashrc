@@ -135,18 +135,18 @@ _get_environment() {
     [[ -n "$VIRTUAL_ENV" ]] && echo " (${VIRTUAL_ENV##*/})"
 }
 
-_expand_cursor_word_as_absolute_path() {
-    local line relpath abspath before after
+_expand_cursor_word() {
+    local line word full before after
 
     line="${READLINE_LINE:0:$READLINE_POINT}"
-    relpath="${line##* }"
-    abspath=$(ap "${relpath}")
+    word="${line##* }"
+    full=$($1 "${word}")
 
-    before="${READLINE_LINE:0:$((READLINE_POINT - ${#relpath}))}"
+    before="${READLINE_LINE:0:$((READLINE_POINT - ${#word}))}"
     after="${READLINE_LINE:$READLINE_POINT}"
 
-    READLINE_LINE="${before}${abspath}${after}"
-    ((READLINE_POINT += ${#abspath} - ${#relpath}))
+    READLINE_LINE="${before}${full}${after}"
+    ((READLINE_POINT += ${#full} - ${#word}))
 }
 
-bind -x '"\C-x\C-a":"_expand_cursor_word_as_absolute_path;"'
+bind -x '"\C-x\C-a":"_expand_cursor_word ap;"'

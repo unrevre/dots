@@ -153,5 +153,10 @@ _as_github_url() {
     echo -n "git@github.com:${1}.git"
 }
 
+_as_aur_package_url() {
+    echo -n "https://aur.archlinux.org/${1}.git"
+}
+
 bind -x '"\C-x\C-a":"_expand_cursor_word ap;"'
 bind -x '"\C-x\C-g":"_expand_cursor_word _as_github_url;"'
+bind -x '"\C-x\C-u":"_expand_cursor_word _as_aur_package_url;"'

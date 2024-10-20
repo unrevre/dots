@@ -56,6 +56,8 @@
 		[ -f \"${_git_dir}/CHERRY_PICK_HEAD\" ] && git cherry-pick --continue && return; \
 		[ -f \"${_git_dir}/REVERT_HEAD\" ] && git revert --continue && return; \
 		echo \" [!] nothing to continue.\"; }; f"
+[diff]
+	algorithm = patience
 [merge]
 	tool = vim
 [mergetool "vim"]

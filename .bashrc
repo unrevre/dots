@@ -149,4 +149,9 @@ _expand_cursor_word() {
     ((READLINE_POINT += ${#full} - ${#word}))
 }
 
+_as_github_url() {
+    echo -n "git@github.com:${1}.git"
+}
+
 bind -x '"\C-x\C-a":"_expand_cursor_word ap;"'
+bind -x '"\C-x\C-g":"_expand_cursor_word _as_github_url;"'

@@ -1,0 +1,16 @@
+set colored-stats on
+set colored-completion-prefix on
+
+"\C-k": kill-line
+"\C-j": backward-kill-line
+"\C-u": kill-whole-line
+
+"\C-f": shell-forward-word
+"\C-b": shell-backward-word
+"\C-d": shell-kill-word
+"\C-w": shell-backward-kill-word
+
+"\ef": forward-word
+"\eb": backward-word
+"\ed": kill-word
+"\ew": backward-kill-word

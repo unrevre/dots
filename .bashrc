@@ -46,19 +46,6 @@ shopt -s histappend
 
 stty -ixon
 
-bind '"\C-k"':kill-line
-bind '"\C-j"':backward-kill-line
-bind '"\C-u"':kill-whole-line
-
-bind '"\C-f"':shell-forward-word
-bind '"\C-b"':shell-backward-word
-bind '"\C-d"':shell-kill-word
-bind '"\C-w"':shell-backward-kill-word
-bind '"\M-f"':forward-word
-bind '"\M-b"':backward-word
-bind '"\M-d"':kill-word
-bind '"\M-w"':backward-kill-word
-
 eval "$(pyenv init -)"
 eval "$(fzf --bash)"
 

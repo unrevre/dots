@@ -159,6 +159,37 @@ function! s:jump(t, w)
   execute a:w.'wincmd w'
 endfunction
 
+function! s:execute_silent(cmd)
+  silent keepjumps keepalt execute a:cmd
+endfunction
+
+" [key, [filename, [stay_on_edit: 0]]]
+function! s:action_for(key, ...)
+  let cmd = get(get(g:, 'fzf_action'), a:key, '')
+
+  " See If the command is the default action that opens the selected file in
+  " the current window. i.e. :edit
+  let edit = stridx('edit', cmd) == 0 " empty, e, ed, ..
+
+  " If no extra argument is given, we just execute the command and ignore
+  " errors. e.g. E471: Argument required: tab drop
+  if !a:0
+    if !edit
+      normal! m'
+      silent! call s:execute_silent(cmd)
+    endif
+  else
+    " For the default edit action, we don't execute the action if the
+    " selected file is already opened in the current window, or we are
+    " instructed to stay on the current buffer.
+    let stay = edit && (a:0 > 1 && a:2 || fnamemodify(a:1, ':p') ==# expand('%:p'))
+    if !stay
+      normal! m'
+      call s:execute_silent((len(cmd) ? cmd : 'edit').' '.s:escape(a:1))
+    endif
+  endif
+endfunction
+
 function! s:buffer_sink(lines)
   if len(a:lines) < 2
     return
@@ -171,8 +202,7 @@ function! s:buffer_sink(lines)
       return
     endif
   endif
-  normal! m'
-  execute 'e'
+  call s:action_for(a:lines[0])
   execute 'buffer' b
 endfunction
 

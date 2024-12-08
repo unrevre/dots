@@ -64,7 +64,8 @@ function! util#prompt(cmd)
   endif
 
   if exists('prompt')
-    call feedkeys(':'.a:cmd."\<CR>".prompt)
+    let prefix = mode() ==# 't' ? "\<C-w>N" : ''
+    call feedkeys(prefix.':'.a:cmd."\<CR>".prompt)
   else
     execute a:cmd
   endif

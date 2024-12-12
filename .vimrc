@@ -304,7 +304,7 @@ autocmd BufRead,FileType * call plugins#ale_maps()
 " bufkill {{{
 let g:BufKillCreateMappings = 0
 
-nnoremap <leader>d :<C-u>BD<CR>
+nnoremap <silent> <leader>d :execute winnr() == winnr('$') ? 'bd' : 'BD' <CR>
 " }}}
 
 " easy-align {{{

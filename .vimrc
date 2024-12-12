@@ -411,6 +411,7 @@ nmap <leader>l <Plug>(qf_qf_toggle_stay)
 " }}}
 
 " targets {{{
+let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'jk'
 " }}}
 " }}}

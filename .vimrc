@@ -195,6 +195,11 @@ augroup status
   autocmd!
   autocmd VimEnter,WinEnter,BufEnter * call status#refresh()
 augroup END
+
+augroup terminal
+  autocmd!
+  autocmd TerminalOpen * setlocal norelativenumber
+augroup END
 " }}}
 
 " text objects {{{

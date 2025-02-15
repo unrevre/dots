@@ -247,18 +247,18 @@ onoremap <silent> if :normal vif<CR>
 " }}}
 
 " search pattern object {{{
-xnoremap <silent> i/
+xnoremap <silent> in
       \ :<C-u>
       \ let spos = searchpos(@\, 'c') <bar>
       \ let epos = searchpos(@\, 'ce') <bar>
       \ :call textobj#select(spos, epos)<CR>
-onoremap <silent> i/ :normal vi/<CR>
-xnoremap <silent> i?
+onoremap <silent> in :normal vin<CR>
+xnoremap <silent> iN
       \ :<C-u>
       \ let spos = searchpos(@\, 'bc') <bar>
       \ let epos = searchpos(@\, 'ce') <bar>
       \ :call textobj#select(spos, epos)<CR>
-onoremap <silent> i? :normal vi?<CR>
+onoremap <silent> iN :normal viN<CR>
 " }}}
 " }}}
 

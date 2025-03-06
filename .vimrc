@@ -21,6 +21,7 @@ execute pathogen#infect()
 " vim-usnip
 " vim-vinegar
 " vimagit
+" vimwiki
 
 " general settings {{{
 filetype plugin indent on
@@ -418,5 +419,12 @@ nmap <leader>l <Plug>(qf_qf_toggle_stay)
 " targets {{{
 let g:targets_aiAI = 'aIAi'
 let g:targets_nl = 'jk'
+" }}}
+
+" vimwiki {{{
+let g:vimwiki_key_mappings = { 'global': 0 }
+let g:vimwiki_list = [{'path': '~/.vimwiki/'}]
+
+nmap <leader>w <Plug>VimwikiIndex
 " }}}
 " }}}

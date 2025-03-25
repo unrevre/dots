@@ -142,6 +142,9 @@ command! -nargs=+ -complete=command Prompt call util#prompt(<q-args>)
 command! -nargs=1 -complete=command -range Scratch silent call
       \ scratch#window('16new', <q-args>, <range>, <line1>, <line2>)
 
+command! -nargs=1 -complete=custom,plugins#complete Toggle silent call
+      \ plugins#toggle(<q-args>)
+
 command! -nargs=0 HL echo
       \ { l, c, n ->
         \ 'hi<'    . synIDattr(synID(l, c, 1), n)             . '> ' .

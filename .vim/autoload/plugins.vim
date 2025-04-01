@@ -8,7 +8,7 @@ function! plugins#ale_maps()
   endfor
 
   if (l:lsp_found)
-    nnoremap <C-n> :ALEHover<CR>
+    nnoremap <C-h> :ALEHover<CR>
     nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
     nnoremap <buffer> <C-\> :ALEFindReferences<CR>
   else

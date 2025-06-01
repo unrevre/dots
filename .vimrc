@@ -202,7 +202,7 @@ augroup END
 
 augroup terminal
   autocmd!
-  autocmd TerminalOpen * setlocal norelativenumber
+  autocmd TerminalWinOpen * setlocal norelativenumber
 augroup END
 " }}}
 

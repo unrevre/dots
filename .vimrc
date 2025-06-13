@@ -84,6 +84,11 @@ nnoremap [b :bprev<CR>
 nnoremap ]t :tabn<CR>
 nnoremap [t :tabp<CR>
 
+nnoremap ]v :cbelow<CR>
+nnoremap [v :cabove<CR>
+nnoremap ]; :lbelow<CR>
+nnoremap [; :labove<CR>
+
 nnoremap <silent> gb :<C-u>call util#break()<CR>
 nnoremap gd :Jump diff<CR>
 nnoremap gm :Jump merge<CR>

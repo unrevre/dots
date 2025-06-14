@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 declare -A __c=()
-declare -A colours=([-]='0' [0]='38;5;6'  [1]='38;5;4'  [2]='38;5;5')
+declare -A colours=([-]='0' [0]='38;5;3'  [1]='38;5;11' [2]='38;5;1')
 for i in "${!colours[@]}"; do
     declare "__c[$i]=$(printf '\033[%sm' "${colours[$i]}")"
 done
@@ -14,7 +14,6 @@ done
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
 
-export AZCOPY_AUTO_LOGIN_TYPE=AZCLI
 export FZF_DEFAULT_OPTS='--multi --layout reverse --height ~40% --border --color=info:2,border:3,spinner:4,hl:3,pointer:1,header:4,marker:11,prompt:11,hl+:1 --bind "ctrl-e:preview-down,ctrl-y:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up"'
 export GCC_COLORS='error=38;5;1:warning=38;5;9:note=38;5;3:caret=38;5;2:locus=01:quote=01'
 export LESS_TERMCAP_md=${__c[0]}
@@ -60,7 +59,6 @@ completions=(
     /usr/share/bash-completion/completions/pacman
     /usr/share/bash-completion/completions/pip
     /usr/share/bash-completion/completions/pyenv
-    "$HOME/.local/share/bash-completion/completions/conda"
 )
 
 # shellcheck source=/dev/null
@@ -121,7 +119,6 @@ _get_git_branch() {
 }
 
 _get_environment() {
-    [[ -n "$CONDA_DEFAULT_ENV" ]] && echo " (${CONDA_DEFAULT_ENV})"
     [[ -n "$VIRTUAL_ENV" ]] && echo " (${VIRTUAL_ENV##*/})"
 }
 

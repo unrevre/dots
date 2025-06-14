@@ -1,0 +1,14 @@
+sudo cryptsetup open --type bitlk /dev/[sda1] [windows]
+sudo mkdir /mnt/[windows]
+sudo mount -t ntfs3 /dev/mapper/[windows] /mnt/[windows]
+sudo umount /mnt/[windows]
+sudo cryptsetup close --type bitlk [windows]
+
+/etc/cryptsetup-keys.d/[windows].key
++ [key]
+
+/etc/crypttab
++ [windows] /dev/[sda1] /etc/cryptsetup-keys.d/[windows].key bitlk
+
+/etc/fstab
++ /dev/mapper/[windows] /mnt/[windows] ntfs3 nohidden,noatime,uid=1000,gid=1000,dmask=022,fmask=133 0 0

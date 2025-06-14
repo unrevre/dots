@@ -1,1 +1,4 @@
 = index =
+
+== linux setup ==
+    * [[mounting bitlocker ntfs partitions on linux]]

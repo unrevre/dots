@@ -1,0 +1,7 @@
+redirect-stderr-stdout:2>&1
+ls-csv:ls -1 | xargs echo | sed "s/ /,/g"
+zero-fill:$(printf '%08d' "${idx}")
+character-count:tr -cd '1' < ${f} | wc -c
+move-all-files-including-hidden:find [...] -mindepth 1 -maxdepth 1 -exec mv {} [...] \;
+convert-case-upper-lower:$(echo "$label" | tr '[:upper:]' '[:lower:]')
+convert-case-lower-upper:$(echo "$label" | tr '[:lower:]' '[:upper:]')

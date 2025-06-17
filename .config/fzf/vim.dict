@@ -1,0 +1,5 @@
+args-grep-files::args `grep -l 'pattern' [files] \| xargs echo`
+bufdo-macro:bufdo execute "normal @q" | write
+argdo-macro:argdo execute "normal @q" | write
+delete-empty-lines::g/^$/d
+delete-blank-lines::g/^\s*$/d

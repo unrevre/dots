@@ -1,0 +1,2 @@
+install-pipx:python3 -m pip install --user pipx
+package-path:python -c "import pip; print(pip.__path__[0])"

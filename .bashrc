@@ -33,7 +33,6 @@ alias grep='grep --color=auto'
 alias less='less -R'
 alias ls='ls --color=auto'
 alias open='xdg-open'
-alias own='chown -R $(id -u):$(id -g)'
 
 PS1="\[${__c[0]}\]┌─[\u@\h] \[${__c[1]}\]\W\[${__c[2]}\]\$(_get_git_branch)\n\
 \[${__c[0]}\]└─╼ $\[${__c[-]}\]\$(_get_environment) "

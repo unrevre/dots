@@ -1,0 +1,5 @@
+conda-disable-prompt:conda config --set changeps1 False
+conda-disable-auto-activate-base:conda config --set auto_activate_base false
+git-commits-modified-file:git log --all -- [...]
+git-set-custom-ssh-command:git config core.sshCommand 'ssh -o IdentitiesOnly=yes -i [...]'
+nvidia-reset-gpu:nvidia-smi --gpu-reset -i [...]

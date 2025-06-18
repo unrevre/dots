@@ -14,6 +14,7 @@
 	co = checkout
 	cp = cherry-pick
 	dc = diff --cached
+	dn = diff --numstat
 	dw = diff -w --word-diff=color --ignore-space-at-eol
 	gl = grep --line-number
 	lg = log --graph
